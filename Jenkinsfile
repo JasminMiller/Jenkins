@@ -4,7 +4,7 @@ pipeline {
         stage('download from github') {
             steps {
                 echo "Starting to download on linux agent"
-                git branch: 'main', url: 'https://github.com/JasminMiller/Jenkins.git'
+                git branch: 'main', url: 'https://github.com/username/Jenkins.git'
                 sh '''
                 echo 'downloaded'
                 echo 'running multiline shell command in jenkins'
@@ -14,7 +14,7 @@ pipeline {
         stage('building docker image') {
             steps {
                 echo "building image"
-                sh 'docker build -t jasminmiller/jenkins_sample:1.0 .'
+                sh 'docker build -t username/jenkins_sample:1.0 .'
                 sh 'echo building finished successfully'
                 sh 'sleep 30'
                 sh '''
@@ -26,8 +26,8 @@ pipeline {
         stage('pushing docker image to  docker registry') {
             steps {
                 echo "pushing image"
-                sh 'docker login -u jasminmiller -p Jasmina92'
-                sh 'docker push jasminmiller/jenkins_sample:1.0'
+                sh 'docker login -u username -p password'
+                sh 'docker push username/jenkins_sample:1.0'
                 sh 'echo pushing to docker registry finished successfully'
                 sh 'sleep 30'
                 sh '''
