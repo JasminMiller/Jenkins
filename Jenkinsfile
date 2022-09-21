@@ -26,7 +26,7 @@ pipeline {
         stage('pushing docker image to  docker registry') {
             steps {
                 echo "pushing image"
-                sh 'docker login -u jasminmiller -p Zarnigor92@'
+                sh 'docker login -u jasminmiller -p Jasmina92'
                 sh 'docker push jasminmiller/jenkins_sample:1.0'
                 sh 'echo pushing to docker registry finished successfully'
                 sh 'sleep 30'
